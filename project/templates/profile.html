@@ -1,83 +1,175 @@
 {% extends "base.html" %} {% block content %}
 
 <h1 class="title">Welcome, {{ name }}!</h1>
-<input class="input is-medium w-75 mb-5" type="text" placeholder="Your Command" />
 
-<div class="container d-flex flex-wrap justify-content-center">
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
+<div class="field has-addons mb-4">
+    <div class="control has-icons-left is-expanded" id="record">
+        <input type="text" class="input is-info is-large" placeholder="Your command" id="command-result">
+        <span class="icon is-medium is-left">
+            <i class="fa fa-microphone"></i>
+        </span>
+    </div>
+</div>
+
+<div class="columns skeleton">
+    <div class="column">
+        <div class="card">
+            <div class="card-image message-header">
+                <figure class="image is-4by3">
+                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
+                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content message-body">
+                <div class="content">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a> -->
+                </div>
             </div>
         </div>
     </div>
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
+
+    <div class="column">
+        <div class="card">
+            <div class="card-image message-header">
+                <figure class="image is-4by3">
+                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
+                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
+                </figure>
             </div>
-        </div>
-    </div>
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
-            </div>
-        </div>
-    </div>
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
-            </div>
-        </div>
-    </div>
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
-            </div>
-        </div>
-    </div>
-    <div class="card col-3 m-2">
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
-            </figure>
-        </div>
-        <div class="card-content" style="padding-top: 10px">
-            <div class="content" style="font-size: 15px">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, asperiores quas. Pariatur quia animi ipsum vitae iure nostrum, commodi tempore!
+            <div class="card-content message-body">
+                <div class="content">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a> -->
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div class="d-flex-justify-content-end mt-5">
-    <button class="button is-danger">Help Me !</button>
+
+<div class="columns skeleton">
+    <div class="column">
+        <div class="card">
+            <div class="card-image message-header">
+                <figure class="image is-4by3">
+                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
+                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content message-body">
+                <div class="content">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <div class="card-image message-header">
+                <figure class="image is-4by3">
+                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
+                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content message-body">
+                <div class="content">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="d-flex-justify-content-end mt-4">
+    <button class="button is-danger">Help Me!</button>
+</div>
+
+<script>
+    var speechRecognizer = null;
+
+    window.onload = () => {
+        getLocation();
+
+        document.getElementById('record').addEventListener('click', () => {
+            var r = document.querySelector('#command-result');
+            speechRecognizer = new webkitSpeechRecognition();
+
+            console.log('Started recording!')
+
+            if ('webkitSpeechRecognition' in window) {
+                speechRecognizer.continuous = true;
+                speechRecognizer.interimResults = true;
+                speechRecognizer.lang = 'en-IN';
+
+                speechRecognizer.start();
+
+                var finalTranscripts = '';
+
+                speechRecognizer.onresult = function(event) {
+                    var interimTranscripts = '';
+                    for (var i = event.resultIndex; i < event.results.length; i++) {
+                        var transcript = event.results[i][0].transcript;
+                        transcript.replace("\n", " ");
+
+                        if (event.results[i].isFinal) {
+                            finalTranscripts += transcript;
+                        } else {
+                            interimTranscripts += transcript;
+                        }
+                    }
+                    r.value = finalTranscripts + interimTranscripts;
+                };
+                speechRecognizer.onerror = function(event) {};
+
+                setTimeout(() => {
+                    speechRecognizer.stop();
+                    speechRecognizer = null;
+                }, 10000);
+            } else {
+                alert('No browser support. Please upgrade your browser');
+            }
+        });
+
+        document.querySelector('#command-result').addEventListener('focusout', (e) => {
+            if (!(speechRecognizer == null)) {
+                console.log('Lost focus, stopped!');
+                speechRecognizer.stop();
+            }
+        })
+    }
+
+    function speakMessage(msg) {
+        if ('speechSynthesis' in window) {
+            var voices = speechSynthesis.getVoices();
+            if (voices.length !== 0) {
+                var msg = new SpeechSynthesisUtterance();
+                msg.voice = voices[3];
+                msg.text = r.value;
+                window.speechSynthesis.speak(msg);
+                msg.lang = 'en-IN';
+                clearInterval(timer);
+            }
+        } else {
+            alert("Sorry, your browser doesn't support text to speech!");
+        }
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                console.log(position.coords.latitude, position.coords.longitude);
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+</script>
+<style>
+    #micro {
+        cursor: pointer;
+    }
+</style>
 {% endblock %}
