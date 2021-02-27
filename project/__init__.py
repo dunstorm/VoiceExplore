@@ -1,10 +1,11 @@
-from flask import Flask
+from flask import Flask,url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_mail import Mail, Message
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
-
+mail = Mail()
 
 def create_app():
     app = Flask(__name__)
@@ -12,6 +13,14 @@ def create_app():
 
     app.config["SECRET_KEY"] = "D)kpN5B9N>_tzi,"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+
+    app.config['MAIL_SERVER']='smtp.gmail.com'
+    app.config['MAIL_PORT'] = 465
+    app.config['MAIL_USERNAME'] = 'kanha180199@gmail.com'
+    app.config['MAIL_PASSWORD'] = 'gfbkezgrsmmwosub'
+    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USE_SSL'] = True
+    mail.init_app(app)
 
     db.init_app(app)
 

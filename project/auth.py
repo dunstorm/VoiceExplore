@@ -68,12 +68,15 @@ def add_post():
 
     em_1_name = request.form.get("em-1-name")
     em_1_email = request.form.get("em-1-email")
+    em_1_no = request.form.get("em-1-no")
 
     em_2_name = request.form.get("em-2-name")
     em_2_email = request.form.get("em-2-email")
+    # em_2_no = request.form.get("em-2-no")
 
     em_3_name = request.form.get("em-3-name")
     em_3_email = request.form.get("em-3-email")
+    # em_3_no = request.form.get("em-3-no")
 
     new_user = User(
         email=usr_email,
@@ -81,10 +84,13 @@ def add_post():
         password=generate_password_hash(usr_pass, method="sha256"),
         em1name=em_1_name,
         em1email=em_1_email,
+        # em1no=em_1_no,
         em2name=em_2_name,
         em2email=em_2_email,
+        # em2no=em_2_no,
         em3name=em_3_name,
         em3email=em_3_email,
+        # em3no=em_3_no,
     )
 
     print(new_user.__dict__)
@@ -100,3 +106,5 @@ def add_post():
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
+
+

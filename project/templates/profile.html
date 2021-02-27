@@ -4,87 +4,50 @@
 
 <div class="field has-addons mb-4">
     <div class="control has-icons-left is-expanded" id="record">
-        <input type="text" class="input is-info is-large" placeholder="Your command" id="command-result">
+        <form action="/place/info" id="myForm" name="myForm" method="POST">
+            <input type="text" class="input is-info is-large" placeholder="Your command" id="command-result" name="input-text">
+        </form>
         <span class="icon is-medium is-left">
             <i class="fa fa-microphone"></i>
         </span>
     </div>
 </div>
 
-<div class="columns skeleton">
+<div class="columns">
+    {% for place in place_list %}
     <div class="column">
-        <div class="card">
-            <div class="card-image message-header">
-                <figure class="image is-4by3">
-                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
-                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
-                </figure>
-            </div>
-            <div class="card-content message-body">
-                <div class="content">
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a> -->
+        <a href="http://127.0.0.1:5000/place/info" >
+            <div class="card">
+                <div class="card-image message-header" style="background-color: white; padding: auto; height: 200px; ">
+                    <!-- <figure class="image"> -->
+                        <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
+                        <img src="{{ place['img'] }}"  style="
+                        height: 100%;
+                        width: 100%;
+                        background-size: cover;
+                        object-fit: cover;
+                        object-position: 50% 50%;
+                        cursor: pointer;
+            
+                        transition: transform 0.5s ease;
+                      " alt="Placeholder image">
+                    <!-- </figure> -->
+                </div>
+                <div class="card-content message-body" style="height: 300px;">
+                    <div class="content" style="text-align:left;">
+                        {{ place['summary']}}
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
-
-    <div class="column">
-        <div class="card">
-            <div class="card-image message-header">
-                <figure class="image is-4by3">
-                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
-                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
-                </figure>
-            </div>
-            <div class="card-content message-body">
-                <div class="content">
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a> -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="columns skeleton">
-    <div class="column">
-        <div class="card">
-            <div class="card-image message-header">
-                <figure class="image is-4by3">
-                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
-                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
-                </figure>
-            </div>
-            <div class="card-content message-body">
-                <div class="content">
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a> -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <div class="card-image message-header">
-                <figure class="image is-4by3">
-                    <!-- <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image"> -->
-                    <img src="https://i.picsum.photos/id/532/1280/960.jpg?hmac=7Sk9w4SLRm8eSpDzWDfJCjtA4KfvGtH1GtXxdhMimuE" alt="Placeholder image">
-                </figure>
-            </div>
-            <div class="card-content message-body">
-                <div class="content">
-                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                    <a href="#">#css</a> <a href="#">#responsive</a> -->
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 <div class="d-flex-justify-content-end mt-4">
-    <button class="button is-danger">Help Me!</button>
+    <form action="/sos" method="POST">
+    <button type="submit" class="button is-danger">Help Me!</button>
+</form>
 </div>
 
 <script>
@@ -137,6 +100,7 @@
             if (!(speechRecognizer == null)) {
                 console.log('Lost focus, stopped!');
                 speechRecognizer.stop();
+                document.forms["myForm"].submit();
             }
         })
     }
