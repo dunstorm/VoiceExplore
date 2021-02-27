@@ -15,6 +15,11 @@ def index():
 def profile():
     return render_template("profile.html", name=current_user.name)
 
+@main.route("/place/info")
+@login_required
+def placeInfo():
+    return render_template("place-info.html", name=current_user.name)
+
 
 @main.route("/directions")
 def directions():
