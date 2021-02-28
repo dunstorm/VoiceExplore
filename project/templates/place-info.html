@@ -183,4 +183,40 @@
     </div>
   </div>
 </div>
+<form action="/talk" method="POST">
+<input type="hidden" value="{{ data }}"></form>
+<script>
+// $.ajax({
+//   type: "POST",
+//   url: "~/main.py",
+//   data: { param: text}
+// }).done(function( o ) {
+   
+// });
+function startSpeaking(message){
+                             var msg = new SpeechSynthesisUtterance();
+                             alert('hello')
+                             msg.voice = voices; 
+                             msg.volume = 1; // From 0 to 1
+                             msg.rate = 1; // From 0.1 to 10
+                             msg.pitch = 2; // From 0 to 2
+                             // alert(window.speechSynthesis.getVoices().voice[5]);
+                             // msg.text = "Como estas Joel";
+                             msg.lang = 'en-IN';
+                             msg.text = message;
+                             window.speechSynthesis.speak(msg);
+                             
+                             
+                          
+                         }
+var temp = '{{ data }}'
+if( document.readyState !== 'loading' ) {
+    console.log( 'document is already ready, just execute code here' );
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log( 'document was not ready, place code here' );
+        startSpeaking();
+    });
+}
+</script>
 {% endblock %}

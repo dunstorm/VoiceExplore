@@ -35,6 +35,7 @@
                 </div>
                 <div class="card-content message-body" style="height: 300px;">
                     <div class="content" style="text-align:left;">
+                        <b>{{ place['title'] }}</b><br>
                         {{ place['summary']}}
                     </div>
                 </div>
@@ -55,7 +56,7 @@
 
     window.onload = () => {
         getLocation();
-
+        
         document.getElementById('record').addEventListener('click', () => {
             var r = document.querySelector('#command-result');
             speechRecognizer = new webkitSpeechRecognition();
@@ -105,21 +106,21 @@
         })
     }
 
-    function speakMessage(msg) {
-        if ('speechSynthesis' in window) {
-            var voices = speechSynthesis.getVoices();
-            if (voices.length !== 0) {
-                var msg = new SpeechSynthesisUtterance();
-                msg.voice = voices[3];
-                msg.text = r.value;
-                window.speechSynthesis.speak(msg);
-                msg.lang = 'en-IN';
-                clearInterval(timer);
-            }
-        } else {
-            alert("Sorry, your browser doesn't support text to speech!");
-        }
-    }
+    // function speakMessage(msg) {
+    //     if ('speechSynthesis' in window) {
+    //         var voices = speechSynthesis.getVoices();
+    //         if (voices.length !== 0) {
+    //             var msg = new SpeechSynthesisUtterance();
+    //             msg.voice = voices[3];
+    //             msg.text = r.value;
+    //             window.speechSynthesis.speak(msg);
+    //             msg.lang = 'en-IN';
+    //             // clearInterval(timer);
+    //         }
+    //     } else {
+    //         alert("Sorry, your browser doesn't support text to speech!");
+    //     }
+    // }
 
     function getLocation() {
         if (navigator.geolocation) {

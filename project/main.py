@@ -5,6 +5,7 @@ from . import db,mail
 import wikipedia
 import geocoder
 import psutil
+import pyttsx3
 
 main = Blueprint("main", __name__)
 
@@ -25,7 +26,9 @@ def profile():
     for loc in near_location:
         summ = wikipedia.summary(loc,sentences=2)
         img = list(wikipedia.page(loc).images)[0]
-        li.append({'summary':summ,'img':img})
+        li.append({'title':loc,'summary':summ,'img':img})
+        # convert_text_to_speech(loc)
+        # convert_text_to_speech(summ)
 
     return render_template("profile.html", name=current_user.name, place_list=li)
 
@@ -36,6 +39,7 @@ def profile():
 def placeInfo():
     input_data = request.form['input-text']
     data = wikipedia.summary(input_data, sentences=2)
+    # convert_text_to_speech(data)
     li = list(wikipedia.page(input_data).images)
     if len(li) > 4:
         img = li[:4]
@@ -57,4 +61,12 @@ def sos():
     mail.send(msg)
     return render_template('sos.html')
 
-
+def convert_text_to_speech(text):
+    engine = pyttsx3.init() 
+    engine.setProperty(
+        "voice", "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0")
+    rate = engine.getProperty("rate")
+    engine.setProperty("rate", 180)
+    engine.setProperty('volume', 1)
+    engine.say(text)
+    engine.runAndWait()
